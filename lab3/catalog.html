@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продукты</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/print.css" media="print">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container d-flex">
+            <nav class="main-menu">
+							<ul>
+								<li><a href="index.html" class="nav-main"><b>Главная</b></a></li>
+								<li><a href="catalog.html">Каталог</a></li>
+						<li><a href="about.html">О нас</a></li>
+								<li><a href="contact.html">Контакты</a></li>
+						</ul>   
+            </nav>
+            <div class="profile">
+                <a href="feedback.html"><b>Обратная связь</b></a>
+            </div>
+        </div>
+    </header>
+    <main class="container d-flex">
+        <aside class="sidebar">
+            <form>
+                <fieldset>
+                    <legend>Производители</legend>
+                    <div class="form-group">
+                        <input type="checkbox" name="manufacturer" id="manufacturer1">
+                        <label for="manufacturer1">Святой источник</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="manufacturer" id="manufacturer2">
+                        <label for="manufacturer2">Borjomi</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Группы товаров</legend>
+                    <div class="form-group">
+                        <input type="radio" name="group" id="group1">
+                        <label for="group1">Артезианская вода</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" name="group" id="group2">
+                        <label for="group2">Вода с фтором</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" name="group" id="group3">
+                        <label for="group3">Вода с йодом</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" name="group" id="group4">
+                        <label for="group4">Наборы воды</label>
+                    </div>
+                </fieldset>
+                <button class="btn">Применить</button>
+            </form>
+        </aside>
+        <div class="page-content">
+            <h1 class="products-header">Продажа воды</h1>
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/artesian_water.jpg" alt="Артезианская вода">
+                    </div>
+                    <div class="product-details">
+                        <header>Артезианская вода "Глубинные источники"</header>
+                        <p class="product-info">Высококачественная артезианская вода из глубоких источников.</p>
+                        <div class="action">
+                            <button class="buy-btn">
+                                <span class="price">100 &#8381;</span><span class="buy">Заказать</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/fluoride_water.jpg" alt="Вода с фтором">
+                    </div>
+                    <div class="product-details">
+                        <header>Вода с добавлением фтора "Зубная защита"</header>
+                        <p class="product-info">Вода с добавлением фтора для укрепления зубов и предотвращения кариеса.</p>
+                        <div class="action">
+                            <button class="buy-btn">
+                                <span class="price">650 &#8381;</span><span class="buy">Заказать</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/iodine_water.jpg" alt="Вода с йодом">
+                    </div>
+                    <div class="product-details">
+                        <header>Вода с добавлением йода "Йод+" </header>
+                        <p class="product-info">Вода с добавлением йода для поддержания нормального функционирования щитовидной железы.</p>
+                        <div class="action">
+                            <button class="buy-btn">
+                                <span class="price">650 &#8381;</span><span class="buy">Заказать</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+									<div class="product-image">
+											<img src="images/mix_water.jpg" alt="Вода с йодом">
+									</div>
+									<div class="product-details">
+											<header>Набор воды всех вкусов</header>
+											<p class="product-info">Набор воды всех вкусов для всей семьи.</p>
+											<div class="action">
+													<button class="buy-btn">
+															<span class="price">1550 &#8381;</span><span class="buy">Заказать</span>
+													</button>
+											</div>
+									</div>
+									
+							</div>
+							<div class="product-card">
+								<div class="product-image">
+										<img src="images/borjomi_water1.jpg" alt="Вода Боржоми">
+								</div>
+								<div class="product-details">
+										<header>Вода Боржоми "Классическая"</header>
+										<p class="product-info">Минеральная вода Боржоми из глубинных источников Грузии.</p>
+										<div class="action">
+												<button class="buy-btn">
+														<span class="price">750 &#8381;</span><span class="buy">Заказать</span>
+												</button>
+										</div>
+								</div>
+						</div>
+						<div class="product-card">
+								<div class="product-image">
+										<img src="images/borjomi_water2.jpg" alt="Вода Боржоми">
+								</div>
+								<div class="product-details">
+										<header>Вода Боржоми "С газом"</header>
+										<p class="product-info">Минеральная вода Боржоми с добавлением газа для освежающего вкуса.</p>
+										<div class="action">
+												<button class="buy-btn">
+														<span class="price">800 &#8381;</span><span class="buy">Заказать</span>
+												</button>
+										</div>
+								</div>
+						</div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            &copy; 2023 ООО «Продажа воды»
+        </div>
+    </footer>
+</body>
+</html>
