@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'Gilroy ExtraBold';
+    font-style: normal;
+    src: url('fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gilroy Regular';
+    font-style: normal;
+    src: url('fonts/Gilroy-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gilroy Medium';
+    font-style: normal;
+    src: url('fonts/Gilroy-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat ExtraBold';
+    font-style: normal;
+    src: url('fonts/Montserrat-ExtraBold.ttf') format('truetype');
+}
+
+#img-logo {
+    height: 65px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    font-family: 'Montserrat ExtraBold', serif;
+}
+
+h3, h4, button {
+    font-family: 'Gilroy ExtraBold', serif;
+}
+
+label, input, textarea, select, tr, h5, h6 {
+    font-family: 'Gilroy Medium', serif;
+}
+
+p, a, td {
+    font-family: 'Gilroy Regular', serif;
+}
+
+main {
+    min-height: 76vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.font-gilroy-extra-bold {
+    font-family: 'Gilroy ExtraBold', serif;
+}
+
+.font-gilroy-medium {
+    font-family: 'Gilroy Medium', serif;
+}
+
+.font-gilroy-regular {
+    font-family: 'Gilroy Regular', serif;
+}
+
+.font-montserrat-extra-bold {
+    font-family: 'Montserrat ExtraBold', serif;
+}
+
+.nav-body, .nav-body a {
+    background-color: #6b259a;
+    color: white;
+}
+
+.article-center {
+    margin: 0 auto;
+}
+
+.btn, .btn-primary, .page-item.active .page-link {
+    background-color: #8f2dce;
+    border-color: #8f2dce;
+    color: white;
+    font-family: 'Gilroy ExtraBold', serif;
+}
+
+.page-item .page-link {
+    color: #8328be;
+}
+
+.btn:hover, .btn-primary:hover {
+    background-color: #9433d3;
+    border-color: #9433d3;
+    color: white;
+}
+
+.btn:active, .btn-primary:active, .btn:active:focus, .btn-primary:active:focus, .btn:active:hover, .btn-primary:active:hover {
+    background-color: #7823b0;
+    border-color: #7823b0;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #c86ce1;
+    border-color: #c86ce1;
+    color: white;
+    font-family: 'Gilroy ExtraBold', serif;
+}
+
+.btn-secondary:hover {
+    background-color: #b25dc5;
+    border-color: #b25dc5;
+    color: white;
+}
+
+.btn-secondary:active, .btn-secondary:active:focus, .btn-secondary:active:hover {
+    background-color: #944aa4;
+    border-color: #944aa4;
+    color: white;
+}
+
+.img-order {
+    height: 25px;
+}
+
+.img-main {
+    height: 400px;
+}
+
+.modal {
+    color: white;
+}
