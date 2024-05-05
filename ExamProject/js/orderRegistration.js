@@ -17,7 +17,6 @@ let hoursNumber = 0
 
 let guideOrderPrice = 0
 
-// при изменении чекбокса, обновляем цену
 checkboxFood.addEventListener('change', () => {
   console.log(getPriceWithOption())
   document.getElementById('total-modal-price').innerText = getPriceWithOption()
@@ -28,9 +27,7 @@ checkboxTrip.addEventListener('change', () => {
   document.getElementById('total-modal-price').innerText = getPriceWithOption()
 })
 
-// при изменении количества людей, обновляем цену и проверяем на валидность
 tripPeopleCount.addEventListener('change', () => {
-	// если количество людей меньше 1, выводим сообщение об ошибке и устанавливаем значение в 1 и тп
   if (tripPeopleCount.value < 1) {
     alert('Количество людей должно быть больше 0')
     tripPeopleCount.value = 1
@@ -47,9 +44,7 @@ tripPeopleCount.addEventListener('change', () => {
 
 // при изменении даты, проверяем является ли день выходным
 tripDate.addEventListener('change', () => {
-	// получаем дату из поля ввода
   const date = new Date(tripDate.value)
-	// если день выходной, устанавливаем флаг в true и обновляем цену
   if (!isThisDayOff && (date.getDay() === 6 || date.getDay() === 0)) {
     isThisDayOff = true
     document.getElementById('total-modal-price').innerText = getPriceWithOption()
@@ -99,7 +94,6 @@ tripDuration.addEventListener('change', () => {
 function orderRegistration () {
   const url = 'http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/orders?api_key=' + API_KEY
 
-	// создание формы для отправки данных
   const formdata = new FormData()
 
 	// добавление данных в форму
@@ -133,18 +127,15 @@ function orderRegistration () {
       }
       return response.json()
     })
-		// если все успешно, выводим данные в консоль и закрываем модальное окно
     .then(data => {
-      // вывод данных в консоль
       console.log(data)
-			// закрытие модального окна
       document.getElementById('close-modal').click()
     })
     .catch(error => {
       console.log(error)
     })
 }
-
+// расчет стоимости 
 const getPrice = () => {
   let price = guideOrderPrice
 
