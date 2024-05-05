@@ -5,19 +5,14 @@ function infoOrder (id, routeId, currRouteName) {
 
 	// отправка запроса на сервер
   fetch(url)
-	// обработка ответа
     .then(response => response.json())
-		// обработка данных
     .then(data => {
 			// получение данных о гиде по id гида
       const guideUrl = 'http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/guides/' + data.guide_id + '?api_key=' + API_KEY
 			// отправка запроса на сервер
       fetch(guideUrl)
-			// обработка ответа
         .then(response => response.json())
-				// обработка данных
         .then(guideData => {
-					// вывод информации о заказе
           displayOrder(data, guideData, routeId, currRouteName)
         })
     })
