@@ -11,15 +11,12 @@ function deleteOrder () {
       'Content-Type': 'application/json;charset=utf-8'
     }
   })
-	// обработка ответа
     .then(response => {
-			// если ответ не успешный, то выводим сообщение об ошибке
       if (!response.ok) {
         throw new Error('Произошла ошибка')
       }
       return response.json()
     })
-		// выводим ответ на консоль
     .then(data => {
       console.log(data)
 			// переходим на страницу аккаунта
