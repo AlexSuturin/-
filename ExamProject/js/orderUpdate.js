@@ -27,8 +27,6 @@ updateCheckTrip.addEventListener('change', () => {
   document.getElementById('update-total-modal-price').innerText = getUpdatedPriceWithOption()
 })
 
-// если изменили количество людей, обновляем цену и проверяем на валидность
-// если количество людей меньше 1, выводим сообщение об ошибке и устанавливаем значение в 1 и тп
 updateTripPeopleCount.addEventListener('change', () => {
   console.log(currentPrice)
   if (updateTripPeopleCount.value < 1) {
@@ -40,7 +38,6 @@ updateTripPeopleCount.addEventListener('change', () => {
     updateTripPeopleCount.value = 20
   }
 
-	// обновляем цену в модальном окне
   numberOfVisitors = Number(updateTripPeopleCount.value)
   document.getElementById('update-total-modal-price').innerText = getUpdatedPriceWithOption()
 })
@@ -96,14 +93,11 @@ updateTripDuration.addEventListener('change', () => {
 
 // функция для обновления заказа
 function updateOrder (id, route_id, route_name) {
-	// ссылка на заказ по id
   const url = 'http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/orders/' + id + '?api_key=' + API_KEY
 
 	// получение данных о заказе
   fetch(url)
-	// преобразование данных в json
     .then(response => response.json())
-		// обработка данных
     .then(data => {
       updateOrderId = data.id
 
@@ -146,10 +140,8 @@ function displayUpdateOrder (data, guideData, route_id, route_name) {
 // функция для обновления заказа (вызывается в account.html)
 function updateOrderRequest () {
   console.log(updateOrderId)
-	// ссылка на заказ по id
   const url = 'http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/orders/' + updateOrderId + '?api_key=' + API_KEY
 
-	// создание формы для отправки данных
   const formdata = new FormData()
 	// добавление данных в форму
   formdata.append('date', String(document.getElementById('update-trip-date').value))
@@ -160,7 +152,6 @@ function updateOrderRequest () {
   formdata.append('persons', String(document.getElementById('update-trip-people-count').value))
   formdata.append('price', String(Math.round(Number(document.getElementById('update-total-modal-price').innerText))))
 
-	// вывод данных в консоль
   formdata.forEach((value, key) => {
     console.log(key + ' ' + value)
   })
@@ -177,7 +168,6 @@ function updateOrderRequest () {
       }
       return response.json()
     })
-		// если все успешно, переходим на страницу account.html
     .then(data => {
       console.log(data)
       window.location.href = 'account.html'
