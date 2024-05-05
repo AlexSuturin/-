@@ -5,31 +5,21 @@ const routeName = document.getElementById('route-name')
 // получение тега выбран ли маршрут
 const routeNotSelected = document.getElementById('route-not-selected')
 
-// получение минимального значения опыта работы
 const minWorkExperience = document.getElementById('experience-range-start')
 let minWorkExperienceValue = 0
-// получение максимального значения опыта работы
 const maxWorkExperience = document.getElementById('experience-range-end')
 let maxWorkExperienceValue = 0
 
-// массив данных о гидах
 let guidesData = []
-// массив данных о гидах в начале
 let startData = []
 
-// получение тега выбора языка
 const langSelect = document.getElementById('lang-select')
-// создание множества языков
-// множество - это коллекция уникальных значений
-// типа множество от 1, 2, 2, 3, 3, 3 будет 1, 2, 3 (что-то вроде массива, но без повторяющихся значений)
 const langSet = new Set()
 
-// текущие значения о гиде, маршруте и цене (пока не выбраны)
 let currentRoute = null
 let currentGuide = null
 let currentPrice = null
 
-// вывод данных о возрасте гида в зависимости от числа
 function getYearString (year) {
   if (year % 10 === 1 && year !== 11) {
     return 'год'
@@ -52,7 +42,6 @@ function setModalData (id, name, language, workExperience, pricePerHour, route) 
   document.getElementById('total-modal-price').innerText = pricePerHour
   currentPrice = pricePerHour
 
-	// очистка формы от предыдущих данных
   document.getElementById('check-food').checked = false
   document.getElementById('check-trip').checked = false
   document.getElementById('trip-date').value = ''
@@ -62,18 +51,15 @@ function setModalData (id, name, language, workExperience, pricePerHour, route) 
 
 // функция для вывода таблицы гидов на страницу
 function displayGuideItems (data, name, routeId) {
-	// если маршрут не выбран, то ничего не делаем
   if (routeNotSelected.innerText !== '') {
     routeNotSelected.innerText = ''
   }
-	// очищаем выбор языка
   if (langSelect.innerText !== '') {
     langSelect.innerHTML = `
         <option value="0">Язык экскурсии</option> 
       `
   }
 
-	// очищаем таблицу от предыдущих данных и добавляем заголовок таблицы
   guidesTable.innerHTML = `
     <thead class="table-primary" style="background-color: #c76a30;">
       <td class="fw-bold table-a" style="background-color: #c76a30; border-radius: 10px 0 0 0; color: white">ФИО</td>
@@ -84,37 +70,29 @@ function displayGuideItems (data, name, routeId) {
     </thead>
     `
 
-	// очищаем множество языков
   langSet.clear()
   guidesData = []
 
-	// если данные о гидах получены и их количество больше 0
   if (Array.isArray(data) && data.length > 0) {
-		// выводим название маршрута
     routeName.innerText = '"' + name + '"'
 
 		// добавляем данные о гидах в массив данных о гидах
     data.forEach(item => {
       guidesData.push(item)
 
-			// если опыт работы гида больше максимального значения, то обновляем максимальное значение
       if (item.workExperience > maxWorkExperienceValue) {
         maxWorkExperienceValue = item.workExperience
       }
-			// если опыт работы гида меньше минимального значения, то обновляем минимальное значение
       if (item.workExperience < minWorkExperienceValue) {
         minWorkExperienceValue = item.workExperience
       }
 
-			// добавляем язык гида в множество языков
       lang = item.language
       langSet.add(lang)
     })
-		// устанавливаем значения опыта работы
     minWorkExperience.value = minWorkExperienceValue
     maxWorkExperience.value = maxWorkExperienceValue
     startData = guidesData
-		// выводим таблицу гидов
     setExperienceTable()
 
     langSet.forEach(item => {
@@ -126,7 +104,7 @@ function displayGuideItems (data, name, routeId) {
     console.error('Ошибка: Некорректные данные')
   }
 }
-
+// функция получения данных о гидах
 function fetchGuides (id, name) {
   if (routeName.innerText !== '') {
     routeName.innerText = ''
@@ -156,7 +134,6 @@ function setExperienceTable () {
 	// получение выбранного языка
   const selectedLang = langSelect.value
 
-	// очистка таблицы от предыдущих данных и добавление заголовка таблицы
   guidesTable.innerHTML = `
     <thead class="table-primary">
       <td class="fw-bold table-a" style="background: #c76a30 !important; border-radius: 10px 0 0 0; color: white">ФИО</td>
@@ -166,21 +143,17 @@ function setExperienceTable () {
       <td style="background: #c76a30 !important; color: white; border-radius: 0 10px 0 0"></td>
     </thead>
     `
-		// создание массива для отфильтрованных данных о гидах
   let filteredGuidesExperiences = []
 
   console.log(minWorkExperience.value, maxWorkExperience.value, startData)
 	// фильтрация данных о гидах по опыту работы
   for (const startDataKey in startData) {
-		// если опыт работы гида больше или равен минимальному значению и меньше или равен максимальному значению
-		// то добавляем данные о гиде в массив отфильтрованных данных
     if (startData[startDataKey].workExperience >= Number(minWorkExperience.value) && startData[startDataKey].workExperience <= Number(maxWorkExperience.value)) {
       filteredGuidesExperiences.push(startData[startDataKey])
     }
   }
   console.log(filteredGuidesExperiences)
 
-	// если выбран язык то фильтруем данные о гидах по языку
   if (selectedLang !== '0') {
     filteredGuidesExperiences = filteredGuidesExperiences.filter(item => item.language === selectedLang)
   }
